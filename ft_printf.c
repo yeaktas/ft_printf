@@ -6,7 +6,7 @@
 /*   By: yaktas <yaktas@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/21 18:47:01 by yaktas            #+#    #+#             */
-/*   Updated: 2022/05/22 00:37:06 by yaktas           ###   ########.fr       */
+/*   Updated: 2022/05/22 00:39:17 by yaktas           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ int	ft_formats(va_list ag, const char format)
 
 int	ft_printf(const char *str, ...)
 {
-	va_list ag;
+	va_list ag; //variadic arguman(degisken arguman)
 	int i;
 
 	i = 0;
