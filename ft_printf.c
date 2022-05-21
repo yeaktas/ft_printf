@@ -6,7 +6,7 @@
 /*   By: yaktas <yaktas@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/21 18:47:01 by yaktas            #+#    #+#             */
-/*   Updated: 2022/05/21 18:51:43 by yaktas           ###   ########.fr       */
+/*   Updated: 2022/05/22 00:37:06 by yaktas           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,26 +18,30 @@ int	ft_putchar(char c)
 	return (1);
 }
 
-void	ft_formats(va_list ag, const char format)
+int	ft_formats(va_list ag, const char format)
 {
+	int i;
+	i = 0;
 	if (format == 'c')
-		ft_putchar(va_arg(ag, int));
+		i += ft_putchar(va_arg(ag, int));
+	return (i);
 }
 
 int	ft_printf(const char *str, ...)
 {
-	va_list	ag;
-	int		i;
+	va_list ag;
+	int i;
 
 	i = 0;
-	va_start(ag, str);
+	va_start(ag, str); //strden sonra gelen tüm parametreleri ag nin icine at.
 	while (str[i])
 	{
 		if (str[i] == '%')
-			ft_formats(ag, str[i] + 1);
+			ft_formats(ag, str[i++]);
 		else
 			i++;
 	}
+	va_end(ag);
 	return (1);
 }
 

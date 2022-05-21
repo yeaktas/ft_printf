@@ -6,7 +6,7 @@
 /*   By: yaktas <yaktas@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/21 18:46:42 by yaktas            #+#    #+#             */
-/*   Updated: 2022/05/21 18:46:44 by yaktas           ###   ########.fr       */
+/*   Updated: 2022/05/21 23:46:07 by yaktas           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,6 @@
 # include <unistd.h>
 
 int ft_printf(const char *, ...);
-void ft_formats(va_list ag, const char format);
+int ft_formats(va_list ag, const char format);
 int ft_putchar(char c);
 #endif
