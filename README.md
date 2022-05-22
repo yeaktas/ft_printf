@@ -6,6 +6,7 @@ Printf fonksiyonunu yeniden yazıyoruz.
 Bu çağrı işlemini kalan isteğe bağlı argümanları yoksayacağınız yere kadar sürdürebilirsiniz. Bir işlevin argümanlarından daha azına erişmek bir sorun çıkarmaz ama daha fazla sayıda argümana erişmeye çalışırsanız bozuk değerler alırsınız.
 3. Argüman gösterici ile işiniz bittiğinde bunu va_end çağrısıyla belirtin.
 
+Derleme: gcc libft/*.c *.c
 
 Kaynaklar: 
 http://www.belgeler.org/glibc/glibc-Variadic-Functions.html#glibc-Argument-Macros

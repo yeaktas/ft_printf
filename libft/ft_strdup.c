@@ -1,27 +1,39 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printf.h                                        :+:      :+:    :+:   */
+/*   ft_strdup.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: yaktas <yaktas@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/05/21 18:46:42 by yaktas            #+#    #+#             */
-/*   Updated: 2022/05/22 18:30:41 by yaktas           ###   ########.fr       */
+/*   Created: 2022/03/14 11:25:12 by yaktas            #+#    #+#             */
+/*   Updated: 2022/03/15 12:37:05 by yaktas           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FT_PRINTF_H
-# define FT_PRINTF_H
+#include "libft.h"
+//malloc ile yer acip icine str yaziyor.
+char	*ft_strdup(const char *str)
+{
+	char	*m;
+	size_t	i;
+	size_t	j;
 
-# include <stdio.h>
-# include <stdarg.h> //va_list icin tanimliyoruz.
-# include <unistd.h>
-# include "libft/libft.h"
+	i = 0;
+	j = ft_strlen(str);
+	m = (char *)malloc(j + 1);
+	if (!m)
+		return (0);
+	while (str[i])
+	{
+		m[i] = str[i];
+		i++;
+	}
+	m[i] = '\0';
+	return (m);
+}
 
-int	ft_printf(const char *str, ...);
-int	ft_formats(va_list ag, const char format);
-int	ft_putchar(char c);
-int	ft_printstr(char *c);
-int	ft_printnbr(int n);
-
-#endif
+/* int	main(void)
+{
+	char a[] = "emre";
+	printf("%s", ft_strdup(a));
+} */

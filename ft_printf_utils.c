@@ -1,27 +1,47 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printf.h                                        :+:      :+:    :+:   */
+/*   ft_printf_utils.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: yaktas <yaktas@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/05/21 18:46:42 by yaktas            #+#    #+#             */
-/*   Updated: 2022/05/22 18:30:41 by yaktas           ###   ########.fr       */
+/*   Created: 2022/05/22 18:01:38 by yaktas            #+#    #+#             */
+/*   Updated: 2022/05/22 18:29:52 by yaktas           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FT_PRINTF_H
-# define FT_PRINTF_H
+#include "ft_printf.h"
 
-# include <stdio.h>
-# include <stdarg.h> //va_list icin tanimliyoruz.
-# include <unistd.h>
-# include "libft/libft.h"
+int	ft_putchar(char c)
+{
+	write(1, &c, 1);
+	return (1);
+}
 
-int	ft_printf(const char *str, ...);
-int	ft_formats(va_list ag, const char format);
-int	ft_putchar(char c);
-int	ft_printstr(char *c);
-int	ft_printnbr(int n);
+//string yazdirmak icin.
+int	ft_printstr(char *c)
+{
+	int	i;
 
-#endif
+	i = 0;
+	while (c[i])
+	{
+		ft_putchar(c[i]);
+		i++;
+	}
+	return (i);
+}
+
+//sayi yazdirmak icin.
+int	ft_printnbr(int n)
+{
+	int		i;
+	char	*s;
+
+	i = 0;
+	if (n == 0)
+		return (ft_putchar('0'));
+	s = ft_itoa(n);
+	i = ft_printstr(s);
+	return (i);
+}
