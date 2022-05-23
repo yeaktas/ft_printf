@@ -6,7 +6,7 @@
 /*   By: yaktas <yaktas@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/21 18:46:42 by yaktas            #+#    #+#             */
-/*   Updated: 2022/05/22 18:30:41 by yaktas           ###   ########.fr       */
+/*   Updated: 2022/05/23 19:58:43 by yaktas           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,8 +20,9 @@
 
 int	ft_printf(const char *str, ...);
 int	ft_formats(va_list ag, const char format);
-int	ft_putchar(char c);
+int	ft_printchar(char c);
 int	ft_printstr(char *c);
 int	ft_printnbr(int n);
+int ft_printptr(unsigned long long d);
 
 #endif

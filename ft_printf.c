@@ -6,7 +6,7 @@
 /*   By: yaktas <yaktas@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/21 18:47:01 by yaktas            #+#    #+#             */
-/*   Updated: 2022/05/22 18:36:25 by yaktas           ###   ########.fr       */
+/*   Updated: 2022/05/23 20:30:49 by yaktas           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,8 @@ int	ft_printptr(unsigned long long d)
 	i = write(1, "0x", 2);
 	if (d == 0)
 		return (i += write(1, "0", 1));
+	else
+		return (0);
 	return (i);
 }
 
@@ -30,7 +32,7 @@ int	ft_formats(va_list ag, const char format)
 
 	len = 0;
 	if (format == 'c')
-		len += ft_putchar(va_arg(ag, int));
+		len += ft_printchar(va_arg(ag, int));
 	if (format == 's')
 		len += ft_printstr(va_arg(ag, char *));
 	if (format == 'p')
@@ -38,7 +40,7 @@ int	ft_formats(va_list ag, const char format)
 	if (format == 'd' || format == 'i')
 		len += ft_printnbr(va_arg(ag, int));
 	if (format == '%')
-		len += ft_putchar('%');
+		len += ft_printchar('%');
 	return (len);
 }
 
@@ -65,7 +67,7 @@ int	ft_printf(const char *str, ...)
 			i++;
 		}
 		else
-			len += ft_putchar(str[i]);
+			len += ft_printchar(str[i]);
 		i++;
 	}
 	va_end(ag);
@@ -82,12 +84,13 @@ int	main(void)
 
 	i = 0;
 	p = str;
-	str = "0";
+	str = "65";
 	a = 'b';
 	len = 5;
-	i += write(1, "asdsfd", 6);
-	len += ft_printf("%p", p);
+	i += write(1, "yazdir\n", 6);
+	len += printf("\n%p", str);
 	printf("\n%d", len);
 	printf("\n%d", i);
-	return (0);
+	//printf("\n%p\n", str);
+return (0);
 }
