@@ -10,3 +10,4 @@ Derleme: gcc libft/*.c *.c
 
 Kaynaklar: 
 http://www.belgeler.org/glibc/glibc-Variadic-Functions.html#glibc-Argument-Macros
+https://opensource.apple.com/source/xnu/xnu-201/osfmk/kern/printf.c.auto.html
