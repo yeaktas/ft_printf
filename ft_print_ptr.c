@@ -1,48 +1,46 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printf_utils.c                                  :+:      :+:    :+:   */
+/*   ft_print_ptr.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: yaktas <yaktas@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/05/22 18:01:38 by yaktas            #+#    #+#             */
-/*   Updated: 2022/05/24 15:59:23 by yaktas           ###   ########.fr       */
+/*   Created: 2022/05/24 12:50:09 by yaktas            #+#    #+#             */
+/*   Updated: 2022/05/24 15:59:28 by yaktas           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
-
-//char yazdirmak icin.
-int	ft_printchar(char c)
-{
-	write(1, &c, 1);
-	return (1);
-}
-
-//string yazdirmak icin.
-int	ft_printstr(char *c)
+//decimal to hexadecimal
+int	ft_dtoh(unsigned long n)
 {
 	int	i;
 
 	i = 0;
-	while (c[i])
+	if (n >= 16)
 	{
-		ft_printchar(c[i]);
-		i++;
+		ft_dtoh(n / 16);
+		ft_dtoh(n % 16);
+	}
+	else
+	{
+		if (n > 9)
+			i += ft_printchar(n - 10 + 'a');
+		else
+			i += ft_printchar(n + 48);
 	}
 	return (i);
 }
 
-//sayi yazdirmak icin.
-int	ft_printnbr(int n)
+//pointer yazdirmak icin
+int	ft_printptr(unsigned long d)
 {
-	int		i;
-	char	*s;
+	int	i;
 
-	i = 0;
-	if (n == 0)
-		return (ft_printchar('0'));
-	s = ft_itoa(n);
-	i = ft_printstr(s);
+	i = write(1, "0x", 2);
+	if (d == 0)
+		return (i += write(1, "0", 1));
+	else
+		i += ft_dtoh(d);
 	return (i);
 }

@@ -6,24 +6,11 @@
 /*   By: yaktas <yaktas@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/21 18:47:01 by yaktas            #+#    #+#             */
-/*   Updated: 2022/05/23 20:30:49 by yaktas           ###   ########.fr       */
+/*   Updated: 2022/05/24 15:59:26 by yaktas           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
-
-//pointer yazdirmak icin
-int	ft_printptr(unsigned long long d)
-{
-	int	i;
-
-	i = write(1, "0x", 2);
-	if (d == 0)
-		return (i += write(1, "0", 1));
-	else
-		return (0);
-	return (i);
-}
 
 //formatlari uygun fonkisyona gönderiyor.
 int	ft_formats(va_list ag, const char format)
@@ -82,15 +69,15 @@ int	main(void)
 	char	*p;
 	int		i;
 
-	i = 0;
+	i = 4;
 	p = str;
 	str = "65";
 	a = 'b';
 	len = 5;
-	i += write(1, "yazdir\n", 6);
-	len += printf("\n%p", str);
-	printf("\n%d", len);
-	printf("\n%d", i);
-	//printf("\n%p\n", str);
-return (0);
+	i += write(1, "yazdir\n", 7);
+	printf("len pointer adresi:%p\n", str);
+	ft_printf("len pointer adresi:%p\n", str);
+	ft_printf("ptr uzunlugu:%d\n", ft_printptr);
+	ft_printf("dtoh uzunlugu:%d\n", ft_dtoh);
+	return (0);
 }

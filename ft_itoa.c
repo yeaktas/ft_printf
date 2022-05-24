@@ -1,48 +1,61 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printf_utils.c                                  :+:      :+:    :+:   */
+/*   ft_itoa.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: yaktas <yaktas@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/05/22 18:01:38 by yaktas            #+#    #+#             */
-/*   Updated: 2022/05/24 15:59:23 by yaktas           ###   ########.fr       */
+/*   Created: 2022/05/24 14:51:49 by yaktas            #+#    #+#             */
+/*   Updated: 2022/05/24 15:59:17 by yaktas           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
-
-//char yazdirmak icin.
-int	ft_printchar(char c)
-{
-	write(1, &c, 1);
-	return (1);
-}
-
-//string yazdirmak icin.
-int	ft_printstr(char *c)
+int	count1(int n)
 {
 	int	i;
 
 	i = 0;
-	while (c[i])
+	if (n < 0)
 	{
-		ft_printchar(c[i]);
+		n = -n;
 		i++;
+	}
+	while (n != 0)
+	{
+		i++;
+		n = n / 10;
 	}
 	return (i);
 }
 
-//sayi yazdirmak icin.
-int	ft_printnbr(int n)
+char	*ft_itoa(int n)
 {
-	int		i;
 	char	*s;
+	int		len;
+	long	x;
 
-	i = 0;
-	if (n == 0)
-		return (ft_printchar('0'));
-	s = ft_itoa(n);
-	i = ft_printstr(s);
-	return (i);
+	x = n;
+	len = count1(x);
+	s = (char *)malloc(len + 1);
+	if (!s)
+		return (0);
+	s[len] = '\0';
+	if (x < 0)
+	{
+		s[0] = '-';
+		x = -x;
+	}
+	while (x != 0)
+	{
+		s[--len] = x % 10 + 48;
+		x = x / 10;
+	}
+	return (s);
+}
+		
+int	main(void)
+{
+	int a = -300;
+	printf("%s", ft_itoa(a));
 }
