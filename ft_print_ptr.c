@@ -6,17 +6,28 @@
 /*   By: yaktas <yaktas@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/24 12:50:09 by yaktas            #+#    #+#             */
-/*   Updated: 2022/05/24 15:59:28 by yaktas           ###   ########.fr       */
+/*   Updated: 2022/05/24 20:27:50 by yaktas           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
-//decimal to hexadecimal
-int	ft_dtoh(unsigned long n)
+
+static int	ft_lendtoh(unsigned long long n)
 {
 	int	i;
 
 	i = 0;
+	while (n != 0)
+	{
+		n /= 16;
+		i++;
+	}
+	return (i);
+}
+
+//decimal to hexadecimal
+void	ft_dtoh(unsigned long long n)
+{
 	if (n >= 16)
 	{
 		ft_dtoh(n / 16);
@@ -25,22 +36,22 @@ int	ft_dtoh(unsigned long n)
 	else
 	{
 		if (n > 9)
-			i += ft_printchar(n - 10 + 'a');
+			ft_printchar(n - 10 + 'a');
 		else
-			i += ft_printchar(n + 48);
+			ft_printchar(n + 48);
 	}
-	return (i);
 }
 
 //pointer yazdirmak icin
-int	ft_printptr(unsigned long d)
+int	ft_printptr(unsigned long long d)
 {
-	int	i;
+	int i;
 
-	i = write(1, "0x", 2);
+	i = 0;
+	i += write(1, "0x", 2);
 	if (d == 0)
-		return (i += write(1, "0", 1));
+		(i += write(1, "0", 1));
 	else
-		i += ft_dtoh(d);
-	return (i);
+		ft_dtoh(d);
+	return (ft_lendtoh(d) + i);
 }
