@@ -6,7 +6,7 @@
 /*   By: yaktas <yaktas@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/24 18:52:14 by yaktas            #+#    #+#             */
-/*   Updated: 2022/05/24 20:21:51 by yaktas           ###   ########.fr       */
+/*   Updated: 2022/05/25 00:53:43 by yaktas           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,5 +27,9 @@ int		ft_printptr(unsigned long long d);
 void	ft_dtoh(unsigned long long n);
 char	*ft_itoa(int n);
 int		ft_lennbr(int n);
-
+int		ft_ulennbr(unsigned int n);
+int		ft_print_unsigned_nbr(unsigned int n);
+char	*ft_uitoa(unsigned int n);
+int		ft_print_hex(int n);
+int		ft_lendtoh(unsigned long long n);
 #endif

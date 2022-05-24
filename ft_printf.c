@@ -6,7 +6,7 @@
 /*   By: yaktas <yaktas@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/21 18:47:01 by yaktas            #+#    #+#             */
-/*   Updated: 2022/05/24 20:28:05 by yaktas           ###   ########.fr       */
+/*   Updated: 2022/05/25 00:51:18 by yaktas           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,13 +27,16 @@ int	ft_formats(va_list ag, const char format)
 	if (format == 'd' || format == 'i')
 		len += ft_printnbr(va_arg(ag, int));
 	if (format == 'u')
-		len += ft_printnbr(va_arg(ag, unsigned int));
+		len += ft_print_unsigned_nbr(va_arg(ag, unsigned int));
+	if (format == 'x' || format == 'X')
+		len += ft_print_hex(va_arg(ag, unsigned int), format);
 	if (format == '%')
 		len += ft_printchar('%');
+
 	return (len);
 }
-	/* if (format == 'x' || format == 'X')
-		len += ft_print_hex(va_arg(ag, unsigned int)); */
+
+	
 //va_list ag; variadic arguman(degisken arguman)
 //va_start(ag, str); strden sonra gelen tüm parametreleri ag nin icine at.
 int	ft_printf(const char *str, ...)
@@ -68,14 +71,14 @@ int	main(void)
 	char	*p;
 	int		i;
 
-	i = 4;
+	i = -24;
 	p = str;
 	str = "65";
 	a = 'b';
 	len = -5;
 	i += write(1, "yazdir\n", 7);
-
 	printf("\n\n");
-	printf(" %d", ft_printf("%phiii", "selam"));
+	ft_printf("%c %s %p %d %u", a, str, str, i, i);
+	printf("\n%c %s %p %d %u", a, str, str, i, i);
 	return (0);
 }

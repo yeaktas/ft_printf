@@ -6,15 +6,15 @@
 /*   By: yaktas <yaktas@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/24 18:58:21 by yaktas            #+#    #+#             */
-/*   Updated: 2022/05/24 20:55:19 by yaktas           ###   ########.fr       */
+/*   Updated: 2022/05/25 00:41:39 by yaktas           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-int ft_ulennbr(unsigned int n)
+int	ft_ulennbr(unsigned int n)
 {
-	int i;
+	int	i;
 
 	i = 0;
 	while (n != 0)
@@ -25,7 +25,8 @@ int ft_ulennbr(unsigned int n)
 	return (i);
 }
 
-char *ft_uitoa(unsigned int n)
+//unsignet int to ascii
+char	*ft_uitoa(unsigned int n)
 {
 	char	*str;
 	int		len;
@@ -35,7 +36,7 @@ char *ft_uitoa(unsigned int n)
 	if (!str)
 		return (0);
 	str[len] = '\0';
-	while(n != 0)
+	while (n != 0)
 	{
 		str[--len] = n % 10 + 48;
 		n = n / 10;
@@ -43,7 +44,8 @@ char *ft_uitoa(unsigned int n)
 	return (str);
 }
 
-int ft_print_unsigned_nbr(unsigned int n)
+//unsigned sayi yazmak icin.
+int	ft_print_unsigned_nbr(unsigned int n)
 {
 	int		i;
 	char	*s;
@@ -55,11 +57,4 @@ int ft_print_unsigned_nbr(unsigned int n)
 	i = ft_printstr(s);
 	free(s);
 	return (i);
-}
-
-int main(void)
-{
-	int a;
-
-	a = 345;
 }

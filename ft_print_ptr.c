@@ -6,13 +6,13 @@
 /*   By: yaktas <yaktas@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/24 12:50:09 by yaktas            #+#    #+#             */
-/*   Updated: 2022/05/24 20:27:50 by yaktas           ###   ########.fr       */
+/*   Updated: 2022/05/25 00:53:03 by yaktas           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-static int	ft_lendtoh(unsigned long long n)
+int	ft_lendtoh(unsigned long long n)
 {
 	int	i;
 
@@ -45,7 +45,7 @@ void	ft_dtoh(unsigned long long n)
 //pointer yazdirmak icin
 int	ft_printptr(unsigned long long d)
 {
-	int i;
+	int	i;
 
 	i = 0;
 	i += write(1, "0x", 2);
