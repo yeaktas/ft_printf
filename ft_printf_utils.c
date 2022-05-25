@@ -6,7 +6,7 @@
 /*   By: yaktas <yaktas@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/22 18:01:38 by yaktas            #+#    #+#             */
-/*   Updated: 2022/05/25 00:48:56 by yaktas           ###   ########.fr       */
+/*   Updated: 2022/05/25 17:19:10 by yaktas           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,8 @@ int	ft_printstr(char *c)
 	int	i;
 
 	i = 0;
+	if (c == 0)
+		return (write(1, "(null)", 6));
 	while (c[i])
 	{
 		ft_printchar(c[i]);

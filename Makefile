@@ -1,8 +1,8 @@
-NAME = ft_printf.a
+NAME = libftprintf.a
 CC = gcc
 FLAGS = -Wall -Wextra -Werror
 
-SRC = $(shell find . -type f -name "*.c" ")
+SRC = $(shell find . -type f -name "*.c")
 
 OBJ = $(SRC:.c=.o)
 
